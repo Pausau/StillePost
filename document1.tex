@@ -1,0 +1,120 @@
+\documentclass[11pt]{amsart} 
+
+\usepackage[parfill]{parskip}
+\usepackage{amssymb}
+\DeclareMathOperator{\Hamming}{Hamming}
+
+\begin{document}
+	
+	\section{Tasks}
+	\begin{itemize}
+		\item Chinese Whispers, noiseless channel, 1 player
+		\item Chinese Whispers, noiseless channels, 2 players
+		\item Chinese Whispers, noiseless channels, n players
+		\item Chinese Whispers, noisy input channel 10\%, 1 player
+		\item ...
+	\end{itemize}
+
+	\section{Input Strings}
+	Length of strings and number of characters must be specified.
+	\begin{itemize}
+		\item iid (uniformely distributed)
+		\item iid (non-uniformely distributed)
+		\item n-grams
+		\item other distributions?
+		\item English words/text?
+	\end{itemize}
+
+	\section{Intermediate Strings}
+	Length of strings and number of characters must be specified.
+
+	\section{Reward functions for the last agent}
+	Let $n$ be the length of strings, $I$ be the input string to the first agent, $O$ be the output string of the last agent. Was Skalierung angeht bin ich mir nicht ganz sicher...
+	\begin{itemize}
+		\item "Hamming reward": $r(I,O)=n-\Hamming(I,O)$
+		\item Levenshtein reward
+		\item ...
+	\end{itemize}
+
+	\section{Reward functions for intermediate agents}
+	Scale of this reward must be specified. \\
+	Let $n$ be the length of strings, $O$ be the output string of one intermediate agent.
+	\begin{itemize}
+		\item Zero: $r(O)=0$
+		\item Shortness: $r(O)=\#{\text{NULLTOKENS}(O)}$
+	\end{itemize}
+
+	\section{Neural network blocks}
+	Intermediate dims etc. should be specified. 
+	\begin{itemize}
+		\item 1-Convolution
+		\item n-Convolution
+		\item Fully Connected
+		\item Self Attention
+	\end{itemize}
+
+	\section{RL Algorithms}
+	Learning rates, batch size etc. should be specified. 
+	\begin{itemize}
+		\item Policy Gradients (REINFORCE)
+		\item Deep Deterministic Policy Gradient ?
+		\item Actor Critic ?
+	\end{itemize}
+
+	\section{List of Experiments}
+	\subsection{Experiment 1} \hfill\\
+	Chinese Whispers, noiseless channel, 1 player \\
+	Length 5, Number of characters 2, iid (uniformely distributed) \\
+	(No intermediate strings) \\
+	Hamming reward, mean-std-normalized as batch \\
+	(No intermediate agents) \\
+	Embedding / 1-Convolution; Total params: 10 \\
+	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
+	Code: https://github.com/Pausau/StillePost/blob/main/Experiment1.ipynb\\
+	Results: Task fully solved once after $\sim$6.26 parameter updates.\\
+	
+		\subsection{Experiment 2} \hfill\\
+	Chinese Whispers, noiseless channel, 1 player \\
+	Length 5, Number of characters \textbf{5}, iid (uniformely distributed) \\
+	(No intermediate strings) \\
+	Hamming reward, mean-std-normalized as batch \\
+	(No intermediate agents) \\
+	Embedding / 1-Convolution; Total params: 55 \\
+	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
+	Code: https://github.com/Pausau/StillePost/blob/main/Experiment2.ipynb\\
+	Results: Task fully solved once after $\sim$22.62 parameter updates.\\
+	
+		\subsection{Experiment 3} \hfill\\
+	Chinese Whispers, noiseless channel, \textbf{2 players}\\
+	Length 5, Number of characters 2, iid (uniformely distributed) \\
+	Intermediate: Length 5, Number of characters 2 \\
+	Hamming reward, mean-std-normalized as batch \\
+	Intermediate: No reward \\
+	Embedding / 1-Convolution; Params: 10 per player, total params: 20 \\
+	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
+	Code: https://github.com/Pausau/StillePost/blob/main/Experiment3.ipynb\\
+	Results: Task fully solved once after $\sim$18.52 parameter updates.\\
+		
+	\subsection{Experiment 4} \hfill\\
+	Chinese Whispers, noiseless channel, 2 players\\
+	Length 5, Number of characters \textbf{3}, iid (uniformely distributed) \\
+	Intermediate: Length 5, Number of characters \textbf{3} \\
+	Hamming reward, mean-std-normalized as batch \\
+	Intermediate: No reward \\
+	Embedding / 1-Convolution; Params: 21 per player, total params: 42 \\
+	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
+	Code: https://github.com/Pausau/StillePost/blob/main/Experiment4.ipynb\\
+	Results: 66\% of the time, the task cannot by fully solved within 100 parameter updates. For the times where it was fully solved, the task was fully solved once after $\sim$35.65 parameter updates.\\
+	
+	\subsection{Experiment 4} \hfill\\
+	Chinese Whispers, noiseless channel, 2 players\\
+	Length 5, Number of characters \textbf{5}, iid (uniformely distributed) \\
+	Intermediate: Length 5, Number of characters \textbf{5} \\
+	Hamming reward, mean-std-normalized as batch \\
+	Intermediate: No reward \\
+	Embedding / 1-Convolution; Params: 55 per player, total params: 110 \\
+	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
+	Code: https://github.com/Pausau/StillePost/blob/main/Experiment5.ipynb\\
+	Results: 100\% of the time, the task cannot by fully solved within 150 parameter updates.\\	
+		
+\end{document}  
