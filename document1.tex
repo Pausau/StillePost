@@ -134,21 +134,76 @@
 	Intermediate: Length 5, Number of characters 2 \\
 	Hamming reward, mean-std-normalized as batch \\
 	Intermediate: No reward \\
-	Embedding / 1-Convolution; Params: 10 per player, total params: 30 \\
+	Embedding(2) / 1-Convolution; Params: 10 per player, total params: 30 \\
 	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
 	Code: https://github.com/Pausau/StillePost/blob/main/Experiment7.ipynb\\
 	Results: Task fully solved once after $\sim$16.52 parameter updates.\\
 	
 	\subsection{Experiment 8. (like Nr.4)} \hfill\\
 	Chinese Whispers \textbf{with parallel agents}, noiseless channel, \textbf{1 + 2} players\\
-	Length 5, Number of characters 2, iid (uniformely distributed) \\
+	Length 5, Number of characters \textbf{3}, iid (uniformely distributed) \\
 	Intermediate: Length 5, Number of characters \textbf{3} \\
 	Hamming reward, mean-std-normalized as batch \\
 	Intermediate: No reward \\
-	Embedding / 1-Convolution; Params: 10 per player, total params: 30 \\
+	Embedding(3) / 1-Convolution; Params: 10 per player, total params: 30 \\
 	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
 	Code: https://github.com/Pausau/StillePost/blob/main/Experiment8.ipynb\\
 	Results: 84\% of the time, the task cannot by fully solved within 100 parameter updates. For the times where it was fully solved, the task was fully solved once after $\sim$36.25 parameter updates.\\
+	
+	\subsection{Experiment 9. (like Nr.4)} \hfill\\
+	Chinese Whispers, noiseless channel, 2 players\\
+	Length 5, Number of characters \textbf{3}, iid (uniformely distributed) \\
+	Intermediate: Length 5, Number of characters \textbf{3} \\
+	Hamming reward, mean-std-normalized as batch \\
+	Intermediate: No reward \\
+	Embedding\textbf{(64)} / 1-Convolution; Params: 387 per player, total params: 774 \\
+	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
+	Code: https://github.com/Pausau/StillePost/blob/main/Experiment9.ipynb\\
+	Results: 22\% of the time, the task cannot by fully solved within 100 parameter updates. For the times where it was fully solved, the task was fully solved once after $\sim$23.56 parameter updates.\\
+	
+	\subsection{Experiment 10. (like Nr.4)} \hfill\\
+	Chinese Whispers, noiseless channel, 2 players\\
+	Length 5, Number of characters \textbf{3}, iid (uniformely distributed) \\
+	Intermediate: Length 5, Number of characters \textbf{6} \\
+	Hamming reward, mean-std-normalized as batch \\
+	Intermediate: No reward \\
+	Embedding\textbf{(3)} / 1-Convolution; Params: 33, 30; total params: 60 \\
+	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
+	Code: https://github.com/Pausau/StillePost/blob/main/Experiment10.ipynb\\
+	Results: 66\% of the time, the task cannot by fully solved within 100 parameter updates. For the times where it was fully solved, the task was fully solved once after $\sim$43.41 parameter updates.\\
+	
+	\subsection{Experiment 11. (like Nr.4)} \hfill\\
+	Chinese Whispers, noiseless channel, 2 players\\
+	Length 5, Number of characters \textbf{3}, iid (uniformely distributed) \\
+	Intermediate: Length 5, Number of characters \textbf{6} \\
+	Hamming reward, mean-std-normalized as batch \\
+	Intermediate: No reward \\
+	Embedding\textbf{(64)} / 1-Convolution; Params: 582, 579; total params: 1161 \\
+	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
+	Code: https://github.com/Pausau/StillePost/blob/main/Experiment11.ipynb\\
+	Results: 6\% of the time, the task cannot by fully solved within 100 parameter updates. For the times where it was fully solved, the task was fully solved once after $\sim$28.04 parameter updates.\\
+	
+	\subsection{Experiment 12. (like Nr.9)} \hfill\\
+	Chinese Whispers, noiseless channel, 2 players\\
+	Length 5, Number of characters \textbf{3}, iid (uniformely distributed) \\
+	Intermediate: Length 5, Number of characters \textbf{3} \\
+	Hamming reward, mean-std-normalized as batch \\
+	Intermediate: No reward \\
+	Embedding\textbf{(256)} / 1-Convolution; Params: 1539 per player; total params: 3078 \\
+	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
+	Code: https://github.com/Pausau/StillePost/blob/main/Experiment12.ipynb\\
+	Results: 22\% of the time, the task cannot by fully solved within 100 parameter updates. For the times where it was fully solved, the task was fully solved once after $\sim$22.72 parameter updates.\\
+	
+	\subsection{Experiment 13. (like Nr.11)} \hfill\\
+	Chinese Whispers, noiseless channel, 2 players\\
+	Length 5, Number of characters \textbf{3}, iid (uniformely distributed) \\
+	Intermediate: Length 5, Number of characters \textbf{30} \\
+	Hamming reward, mean-std-normalized as batch \\
+	Intermediate: No reward \\
+	Embedding\textbf{(256)} / 1-Convolution; Params: 8448, 8451; total params: 16,899 \\
+	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
+	Code: https://github.com/Pausau/StillePost/blob/main/Experiment13.ipynb\\
+	Results: 34\% of the time, the task cannot by fully solved within 200 parameter updates (one above 100). For the times where it was fully solved, the task was fully solved once after $\sim$56.73 parameter updates.\\
 	
 		
 \end{document}  
