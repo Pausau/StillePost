@@ -216,5 +216,16 @@
 	Code: https://github.com/Pausau/StillePost/blob/main/Experiment14.ipynb\\
 	Results: 4\% of the time, the task cannot by fully solved within 100 parameter updates. For the times where it was fully solved, the task was fully solved once after $\sim$32.63 parameter updates.\\
 	
+	\subsection{Experiment 15. (like Nr.11)} \hfill\\
+	Chinese Whispers, noiseless channel, 2 players\\
+	Length 5, Number of characters \textbf{3}, iid (uniformely distributed) \\
+	Intermediate: Length 5, Number of characters \textbf{10} \\
+	Hamming reward, mean-std-normalized as batch \\
+	Intermediate: No reward \\
+	Embedding\textbf{(64)} / 1-Convolution; Params: 842, 835; total params: 1677 \\
+	REINFORCE, SGD(lr=0.01, momentum=0), batch size 64 \\
+	Code: https://github.com/Pausau/StillePost/blob/main/Experiment15.ipynb\\
+	Results: 4\% of the time, the task cannot by fully solved within 100 parameter updates. For the times where it was fully solved, the task was fully solved once after $\sim$35.87 parameter updates.\\
+	
 		
 \end{document}  
